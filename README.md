@@ -1,3 +1,3 @@
 ## Instalación
 
-Se debe crear el .env a partir de .env.example
+The .env must be created from .env.example
