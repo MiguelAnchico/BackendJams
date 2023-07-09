@@ -1,0 +1,41 @@
+module.exports = (sequelize, type) => {
+	return sequelize.define(
+		'Recogen',
+		{
+			Id: {
+				type: type.INTEGER,
+				allowNull: false,
+				primaryKey: true,
+				references: {
+					model: 'Pedidos',
+					key: 'Id',
+					deferrable: type.Deferrable.INITIALLY_IMMEDIATE,
+				},
+			},
+			Cedula: {
+				type: type.STRING(15),
+				allowNull: false,
+				primaryKey: true,
+				references: {
+					model: 'Pedidos',
+					key: 'CedulaCliente',
+					deferrable: type.Deferrable.INITIALLY_IMMEDIATE,
+				},
+			},
+			Fecha: {
+				type: type.DATE,
+				allowNull: false,
+				primaryKey: true,
+				references: {
+					model: 'Pedidos',
+					key: 'Fecha',
+					deferrable: type.Deferrable.INITIALLY_IMMEDIATE,
+				},
+			},
+		},
+		{
+			timestamps: false,
+			freezeTableName: true,
+		}
+	);
+};
